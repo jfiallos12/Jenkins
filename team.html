@@ -1,0 +1,315 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Aventura 360</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown img.flag").addClass("flagvisibility");
+
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+                        
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+                        
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
+
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
+
+
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
+     <!-- Add fancyBox main JS and CSS files -->
+	<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+	<link href="css/magnific-popup.css" rel="stylesheet" type="text/css">
+		<script>
+			$(document).ready(function() {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
+					fixedContentPos: false,
+					fixedBgPos: true,
+					overflowY: 'auto',
+					closeBtnInside: true,
+					preloader: false,
+					midClick: true,
+					removalDelay: 300,
+					mainClass: 'my-mfp-zoom-in'
+			});
+		});
+		</script>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+			  <div class="col-md-12">
+				 <div class="header-left">
+					<div class="logo">
+						<a href="index.html"><img src="images/logo1.png" alt="" width="90px" /></a>
+					 </div>
+					 <div class="menu">
+						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
+						    <ul class="nav" id="nav">
+						    	<li><a href="shop.html">Tienda</a></li>
+						    	<li class="current"><a href="team.html">Equipo</a></li>
+						    	<li ><a href="experiance.html">Experiancias</a></li>
+								<li><a href="contact.html">Contactanos</a></li>								
+								<div class="clear"></div>
+							</ul>
+							<script type="text/javascript" src="js/responsive-nav.js"></script>
+				    </div>						
+	    		    <div class="clear"></div>
+	    	    </div>
+	            <div class="header_right">
+	    		  <!-- start search-->
+				  <div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+						<!----search-scripts---->
+						<script src="js/classie.js"></script>
+						<script src="js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+				   <ul class="icon1 sub-icon1 profile_img">
+					 <li><a class="active-icon c1" href="#"> </a>
+						<ul class="sub-icon1 list">
+						  <div class="product_control_buttons">
+						  	<a href="#"><img src="images/edit.png" alt=""/></a>
+						  		<a href="#"><img src="images/close_edit.png" alt=""/></a>
+						  </div>
+						   <div class="clear"></div>
+						  <li class="list_img"><img src="images/1.jpg" alt=""/></li>
+						  <li class="list_desc"><h4><a href="#">velit esse molestie</a></h4><span class="actual">1 x
+                          $12.00</span></li>
+						  <div class="login_buttons">
+							 <div class="check_button"><a href="checkout.html">Check out</a></div>
+							 <div class="login_button"><a href="login.html">Login</a></div>
+							 <div class="clear"></div>
+						  </div>
+						  <div class="clear"></div>
+						</ul>
+					 </li>
+				   </ul>
+		        <div class="clear"></div>
+	       </div>
+	      </div>
+		 </div>
+	    </div>
+	  </div>
+     <div class="main">
+      <div class="shop_top">
+		<div class="container">
+			<div class="row team_box "style= >
+				<h3 class="m_2">Nuestro Equipo</h3>
+				<div class="col-md-2 team1">
+				  <a class="popup-with-zoom-anim" href="#small-dialog3"><img src="images/kevin.jpg" class="img-responsive" title="continue" alt=""/></a>
+				    <div id="small-dialog3" class="mfp-hide">
+					   <div class="pop_up2">
+					   	 <h2>Lorem ipsum </h2>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+					   </div>
+					</div>
+					<h4 class="m_5"><a href="#">KEVIN GARCIA</a></h4>
+				    <p class="m_6">Ing. en sistemas</p>
+				</div>
+				<div class="col-md-2 team1">
+					<a class="popup-with-zoom-anim" href="#small-dialog3"><img src="images/kevinrivera.jpg" class="img-responsive" title="continue" alt=""/></a>
+					  <div id="small-dialog3" class="mfp-hide">
+						 <div class="pop_up2">
+							  <h2>Lorem ipsum </h2>
+						   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						 </div>
+					  </div>
+					  <h4 class="m_5"><a href="#">KEVIN RIVERA</a></h4>
+					  <p class="m_6">Ing. en sistemas</p>
+				  </div>
+				<div class="col-md-2 team1">
+					<a class="popup-with-zoom-anim" href="#small-dialog3"><img src="images/angel.jpg" class="img-responsive" title="continue" alt=""/></a>
+				    <div id="small-dialog3" class="mfp-hide">
+					   <div class="pop_up2">
+					   	 <h2>Lorem ipsum </h2>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+					   </div>
+					</div>
+					<h4 class="m_5"><a href="#">ANGEL GONZALEZ</a></h4>
+				    <p class="m_6">Ing. en sistemas</p>
+				</div>
+				<div class="col-md-2 team1">
+					<a class="popup-with-zoom-anim" href="#small-dialog3"><img src="images/ed.jpg" class="img-responsive" title="continue" alt=""/></a>
+				    <div id="small-dialog3" class="mfp-hide">
+					   <div class="pop_up2">
+					   	 <h2>Lorem ipsum </h2>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+					   </div>
+					</div>
+					<h4 class="m_5"><a href="#">EDWIN MORENO</a></h4>
+				    <p class="m_6">Ing. en sistemas</p>
+				</div>
+				<div class="col-md-2 team1">
+					<a class="popup-with-zoom-anim" href="#small-dialog3"><img src="images/danny.jpg" class="img-responsive" title="continue" alt=""/></a>
+				    <div id="small-dialog3" class="mfp-hide">
+					   <div class="pop_up2">
+					   	 <h2>Lorem ipsum </h2>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+					   </div>
+					</div>
+					<h4 class="m_5"><a href="#">DANNY RECARTE</a></h4>
+				    <p class="m_6">Ing. en sistemas</p>
+				</div>
+				<div class="col-md-2 team1">
+					<a class="popup-with-zoom-anim" href="#small-dialog3"><img src="images/team1.jpg" class="img-responsive" title="continue" alt=""/></a>
+					  <div id="small-dialog3" class="mfp-hide">
+						 <div class="pop_up2">
+							  <h2>Lorem ipsum </h2>
+						   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie.</p>
+						 </div>
+					  </div>
+					  
+				  </div>
+				  <div class="col-md-2 team1">
+					<a class="popup-with-zoom-anim" href="#small-dialog3"><img src="images/sebastia1.jpg" class="img-responsive" title="continue" alt=""/></a>
+				    <div id="small-dialog3" class="mfp-hide">
+					   <div class="pop_up2">
+					   	 <h2>Lorem ipsum </h2>
+						 <p></p>
+						 <p>.</p>
+					   </div>
+					</div>
+					<h4 class="m_5"><a href="#">SEBASTIAN FIALLOS</a></h4>
+				    <p class="m_6">Ing. en sistemas</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 team_bottom">
+				  <ul class="team_list">
+					<h4>Ventajas:</h4>
+		            <!-- <li><a href="#">Always free from repetition</a><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt</p></li> -->
+		            <li><a href="#">Experiencias personalizadas</a><p>En nuestra empresa, nos dedicamos a comprender los intereses y las preferencias únicas de cada cliente. Desde la planificación del viaje hasta la experiencia misma, ofrecemos un enfoque personalizado que garantiza que cada viaje sea inolvidable y adaptado a las necesidades individuales de nuestros clientes.</p></li>
+		            <li><a href="#">Flexibilidad y atención personalizada</a><p>Adaptamos cada viaje según los intereses y necesidades de nuestros clientes, brindando una experiencia turística única y memorable.</p></li>
+		            <li><a href="#">Compromiso con la sostenibilidad</a><p>Nos esforzamos por preservar los lugares que visitamos y contribuir al desarrollo responsable de las comunidades locales, promoviendo prácticas turísticas sostenibles y respetuosas con el medio ambiente</p></li>
+		          </ul>
+				</div>
+				<div class="col-md-8">
+					<ul class="team_list">
+					 <h4>Vision:</h4>
+					 <p class="m_7">En Aventura360, aspiramos a ser reconocidos como la compañía líder en reservas de viajes en América para el año 2030. Nos distinguiremos por ofrecer una amplia selección de aerolíneas, los mejores hoteles y expertos guías locales. Nos esforzamos por ganarnos la confianza de nuestros clientes a través de la transparencia, la excelencia en el servicio al cliente y la pasión por descubrir nuevas experiencias en todo el continente.</p>
+		             <img src="images/costacruceros.jpg" style="border-radius: 30px;" class="img-responsive" alt=""/>
+					 
+		          </ul>
+				</div>
+			</div>
+		</div>
+	   </div>
+	  </div>
+	  <div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="footer_box">
+						<h4>Servicios</h4>
+						<li><a href="#">Hombres</a></li>
+						<li><a href="#">Mujeres</a></li>
+						<li><a href="#">Jovenes</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul class="footer_box">
+						<h4>Acerca</h4>
+						<li><a href="#"></a></li>
+						<li><a href="#">Sponsors</a></li>
+						<li><a href="#">Equipo</a></li>
+						<li><a href="#">Descargar el catalogo</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul class="footer_box">
+						<h4>Soporte al cliente</h4>
+						<li><a href="#">Contactanos</a></li>
+						<li><a href="#">Asistencia en compras</a></li>
+						<li><a href="#">Devoluciones</a></li>
+						<li><a href="#">Garantia</a></li>
+						
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<ul class="footer_box">
+						<h4>Correo</h4>
+						<div class="footer_search">
+						   <form>
+							<input type="text" value="Introduce tu correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+							<input type="submit" value="Entrar">
+						   </form>
+						</div>
+						<ul class="social">	
+							<li class="facebook"><a href="https://www.facebook.com/profile.php?id=100043146593667"><span> </span></a></li>
+							<li class="twitter"><a href="https://www.facebook.com/profile.php?id=100043146593667"><span> </span></a></li>
+							<li class="instagram"><a href="https://www.facebook.com/profile.php?id=100043146593667"><span> </span></a></li>	
+							<li class="pinterest"><a href="#"><span> </span></a></li>	
+							<li class="youtube"><a href="#"><span> </span></a></li>										  				
+						  </ul>
+						   
+					</ul>
+				</div>
+			</div>
+			<div class="row footer_bottom">
+				<div class="copy">
+				   
+				</div>
+				<dl id="sample" class="dropdown">
+					<dt><a><span>Cambiar la region</span></a></dt>
+					<dd>
+						<ul>
+							<li><a >Peru<span class="value">AS</span></a></li>
+							<li><a >Guatemala<span class="value">SL</span></a></li>
+							<li><a >El salvador<span class="value">NZ</span></a></li>
+							<li><a >España<span class="value">Pk</span></a></li>
+							<li><a >Brasil<span class="value">UK</span></a></li>
+							<li><a >Mexico<span class="value">US</span></a></li>
+						</ul>
+					 </dd>
+					 </dl>
+			   </div>
+		</div>
+	</div>
+</body>	
+</html>
