@@ -1,25 +1,23 @@
 pipeline {
     agent any
     stages {
-        stage('Declarative: Checkout SCM') {
+        stage('Checkout SCM') {
             steps {
-                echo 'Clonando el código fuente desde el repositorio...'
+                echo 'Clonando el código fuente...'
                 checkout scm
             }
         }
         stage('Merge to Pruebas') {
             steps {
-                echo 'Fusionando cambios de desarrollo a pruebas...'
                 script {
                     try {
-                        bat '''
-                        git config user.name "Jenkins"
-                        git config user.email "jenkins@example.com"
-                        git fetch origin desarrollo:desarrollo
-                        git checkout pruebas
-                        git merge desarrollo -m "Fusión automática desde desarrollo a pruebas"
-                        git push origin pruebas
-                        '''
+                        // ... (tu código existente)
+                        echo "Verificando estado del repositorio..."
+                        sh 'git status'
+                        echo "Realizando la fusión..."
+                        sh 'git merge desarrollo -m "Fusión automática"'
+                        // Manejar conflictos si es necesario
+                        sh 'git push origin pruebas'
                     } catch (Exception e) {
                         echo "Error durante el merge: ${e.message}"
                         error("Fallo en la etapa de Merge to Pruebas")
