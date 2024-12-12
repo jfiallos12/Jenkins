@@ -36,20 +36,20 @@ pipeline {
         }
         // Aquí agregamos la nueva etapa
         stage('Merge to Pruebas') {
-            when {
-                branch 'desarrollo'
-            }
-            steps {
-                echo 'Fusionando cambios de desarrollo a pruebas...'
-                sh '''
-                git config user.name "Jenkins"
-                git config user.email "jenkins@example.com"
-                git checkout pruebas
-                git merge desarrollo -m "Fusión automática desde desarrollo a pruebas"
-                git push origin pruebas
-                '''
-            }
-        }
+    when {
+        branch 'desarrollo'
+    }
+    steps {
+        echo 'Fusionando cambios de desarrollo a pruebas...'
+        bat '''
+        git config user.name "Jenkins"
+        git config user.email "jenkins@example.com"
+        git checkout pruebas
+        git merge desarrollo -m "Fusión automática desde desarrollo a pruebas"
+        git push origin pruebas
+        '''
+    }
+}
         stage('General') {
             steps {
                 echo "Esta tarea se ejecuta en todas las ramas: ${env.BRANCH_NAME}"
