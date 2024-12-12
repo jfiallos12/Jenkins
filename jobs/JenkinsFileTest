@@ -1,0 +1,60 @@
+
+pipeline {
+    agent any
+
+    environment {
+        REPO_URL = 'github.com/Ro0ck3r/IA_UNAH.git' // Usa la URL del repositorio que deseas clonar
+        BRANCH_NAME = 'main'  // Nombre de la rama
+    }
+
+    stages {
+        stage('Clonando Repositorio') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'github_credenciales', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASSWORD')]) {
+                    script {
+                        // limpiamdo el espacio de trabajo antes
+                        sh "rm -rf ./*"
+                        // Clonando el repositorio con las credenciales
+                        sh "git clone https://$GIT_USER:$GIT_PASSWORD@$REPO_URL"
+                    }
+                }
+            }
+        }
+
+        stage('Hacer Commit y Push') {
+            steps {
+                script {
+                    dir('/home/tavo/jenkins') {
+                        // agregando como directorio seguro la ubicacion del repositorio.
+                        sh 'git config --global --add safe.directory /home/tavo/jenkins'
+                        // Verificando si hay cambios antes de hacer commit
+                        def changes = sh(script: 'git status --porcelain', returnStdout: true).trim()
+
+                        if (changes) {
+                            sh 'git add .'
+                            sh 'git commit -m "Mensaje del commit desde Jenkins"'
+                            //sh 'git push origin ${BRANCH_NAME}'
+                            // Hacer push a GitHub con las credenciales
+                            withCredentials([usernamePassword(credentialsId: 'tokenGit', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
+                            sh "git pull https://${GITHUB_USER}:${GITHUB_TOKEN}@$REPO_URL origin ${BRANCH_NAME}"
+                            sh "git push https://${GITHUB_USER}:${GITHUB_TOKEN}@$REPO_URL ${BRANCH_NAME}"
+                            sh "pwd"
+                            } 
+                        }else{
+                            echo "No hay cambios para hacer commit."
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline completado con éxito."
+        }
+        failure {
+            echo "Hubo un error en el pipeline."
+        }
+    }
+}

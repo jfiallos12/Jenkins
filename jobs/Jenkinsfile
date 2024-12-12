@@ -1,32 +1,13 @@
-import groovy.json.JsonSluperClassic
-
-def jsonParse(def json){
-    new groovy.json.JsonSluperClassic().parseText(json)
-}
-pipeline{
-    agent {label 'master' }
-    environment {
-        appName = "variable"
+pipeline {
+    agent any
+    environment{
+        INSTAGRAM_TAVO="@TAVO_GAMERO"
     }
-    stages {
-        stage('paso 1') {
-            steps {
-                script {
-                    sh "echo 'hola mundo'"
-                }
+    stages{
+        stage("Saludo 1"){
+            steps{
+                echo "Hola desde saludo 1"
             }
-        }
-    }
-    post {
-        always {
-            deleteDir()
-            sh "echo 'fase always'"
-        }
-        success {
-            sh "echo 'fase success'"
-        }
-        failure {
-            sh "echo 'fase failure'"
         }
     }
 }
