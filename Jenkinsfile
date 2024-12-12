@@ -4,44 +4,40 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "Clonando la rama ${env.BRANCH_NAME}"
-                checkout scm // Descarga el código de la rama activa
+                checkout scm
             }
         }
         stage('Build') {
             when {
-                branch 'desarrollo' // Este paso se ejecuta solo en la rama desarrollo
+                branch 'desarrollo'
             }
             steps {
                 echo "Construyendo el proyecto desde la rama desarrollo"
-                // Comandos específicos para compilar en desarrollo
-                sh 'echo Compilación de desarrollo'
+                bat 'echo Compilación de desarrollo' // Cambia `sh` por `bat`
             }
         }
         stage('Test') {
             when {
-                branch 'pruebas' // Este paso se ejecuta solo en la rama pruebas
+                branch 'pruebas'
             }
             steps {
                 echo "Ejecutando pruebas desde la rama pruebas"
-                // Comandos específicos para ejecutar pruebas
-                sh 'echo Ejecutando pruebas'
+                bat 'echo Ejecutando pruebas' // Cambia `sh` por `bat`
             }
         }
         stage('Deploy') {
             when {
-                branch 'produccion' // Este paso se ejecuta solo en la rama producción
+                branch 'produccion'
             }
             steps {
                 echo "Desplegando el proyecto desde la rama producción"
-                // Comandos para el despliegue
-                sh 'echo Despliegue en producción'
+                bat 'echo Despliegue en producción' // Cambia `sh` por `bat`
             }
         }
         stage('General') {
             steps {
-                echo "Esta etapa se ejecuta en todas las ramas: ${env.BRANCH_NAME}"
-                // Comandos generales que se ejecutan en todas las ramas
-                sh 'echo Tarea general'
+                echo "Esta tarea se ejecuta en todas las ramas: ${env.BRANCH_NAME}"
+                bat 'echo Tarea general para todas las ramas' // Cambia `sh` por `bat`
             }
         }
     }
