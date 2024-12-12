@@ -59,21 +59,23 @@ pipeline {
             }
         }
 
-        stage('Merge to Pruebas') {
-            when {
-                branch 'desarrollo'
-            }
-            steps {
-                echo 'Fusionando cambios de desarrollo a pruebas...'
-                bat """
-                git config user.name "Jenkins"
-                git config user.email "jenkins@example.com"
-                git checkout pruebas
-                git merge desarrollo -m "Fusión automática desde desarrollo a pruebas"
-                git push origin pruebas
-                """
-            }
-        }
+    stage('Merge to Pruebas') {
+    when {
+        branch 'desarrollo'
+    }
+    steps {
+        echo 'Fusionando cambios de desarrollo a pruebas...'
+        bat """
+            git config user.name "Jenkins"
+            git config user.email "jenkins@example.com"
+            git fetch origin desarrollo:desarrollo
+            git checkout pruebas
+            git merge desarrollo -m "Fusión automática desde desarrollo a pruebas"
+            git push origin pruebas
+        """
+    }
+}
+
 
         stage('General') {
             steps {
