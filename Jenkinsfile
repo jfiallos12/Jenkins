@@ -7,25 +7,37 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build Desarrollo') {
+        stage('Build') {
             steps {
-                echo 'Construyendo el proyecto desde la rama desarrollo...'
-                script {
-                    try {
-                        bat '''
-                        echo Compilación de desarrollo exitosa
-                        '''
-                    } catch (Exception e) {
-                        echo "Error durante la compilación: ${e.message}"
-                        error("Fallo en la etapa de Build Desarrollo")
-                    }
-                }
+                echo 'Construyendo el proyecto en desarrollo...'
+                bat '''
+                echo Compilación de desarrollo
+                '''
             }
         }
-        stage('Prueba básica') {
+        stage('Merge to Pruebas') {
             steps {
-                echo 'Pipeline sigue funcionando correctamente...'
+                echo 'Fusionando cambios de desarrollo a pruebas...'
+                bat '''
+                git config user.name "Jenkins"
+                git config user.email "jenkins@example.com"
+                git fetch origin desarrollo:desarrollo
+                git checkout pruebas
+                git merge desarrollo -m "Fusión automática desde desarrollo a pruebas"
+                git push origin pruebas
+                '''
             }
+        }
+    }
+    post {
+        always {
+            echo "Pipeline completado para la rama: desarrollo"
+        }
+        success {
+            echo "Pipeline finalizado con éxito."
+        }
+        failure {
+            echo "Pipeline fallido."
         }
     }
 }
